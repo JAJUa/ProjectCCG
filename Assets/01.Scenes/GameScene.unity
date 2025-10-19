@@ -2873,6 +2873,12 @@ MonoBehaviour:
   resultText: {fileID: 1490919154}
   nextRoundButton: {fileID: 263999203}
   returnToLobbyButton: {fileID: 717869458}
+  gameManager: {fileID: 0}
+  shopSystem: {fileID: 0}
+  battleSystem: {fileID: 0}
+  currentShopCards: []
+  currentFormationSlots: []
+  currentBattleUnits: []
 --- !u!114 &1745460519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2885,6 +2891,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f553648ff826fa14780891f86e94ade6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  currentShop:
+    availableCharacters: []
+    availableSpirit:
+      id: 
+      name: 
+      type: 0
+      evolutionType: 0
+      buyCost: 0
+      baseAttack: 0
+      baseHealth: 0
+      baseSpeed: 0
+      currentAttack: 0
+      currentHealth: 0
+      currentSpeed: 0
+      buffs: []
+      attackThreshold: 0
+      healthThreshold: 0
+      speedThreshold: 0
+      skillDescription: 
+      attributes: []
+    refreshCost: 1
+  shopSlotCount: 5
+  refreshCost: 1
+  followerPool: []
+  spiritPool: []
 --- !u!114 &1745460520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2897,6 +2929,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44f69393d903cf4e89ab1f62354645e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTeam: []
+  enemyTeam: []
+  battleResult:
+    isWin: 0
+    damageDealt: 0
+    goldEarned: 0
+    battleLog: []
+  actionDelay: 0.5
+  isBattleActive: 0
+  uiManager: {fileID: 0}
 --- !u!114 &1745460521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2909,47 +2951,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6df51f135690146b3c37c8777ef5d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPlayerDeck:
-    playerId: 
-    ownedCharacters: []
-    currentFormation: []
-    gold: 10
-    health: 100
-    round: 1
-  myPlayerId: 
-  currentMatch:
-    matchId: 
-    player1Id: 
-    player2Id: 
-    player1Deck:
-      playerId: 
-      ownedCharacters: []
-      currentFormation: []
-      gold: 10
-      health: 100
-      round: 1
-    player2Deck:
-      playerId: 
-      ownedCharacters: []
-      currentFormation: []
-      gold: 10
-      health: 100
-      round: 1
-    currentRound: 0
-    currentPhase: 
-    winnerId: 
-  isMatching: 0
-  config:
-    shopSlotCount: 5
-    spiritUnlockRound: 2
-    maxFormationSlots: 6
-    winGold: 5
-    loseGold: 3
-    startGold: 10
-    startHealth: 100
-    damagePerLoss: 10
-    actionDelay: 0.5
-    stunLightningStack: 3
 --- !u!4 &1745460522
 Transform:
   m_ObjectHideFlags: 0

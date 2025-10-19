@@ -1,0 +1,20 @@
+id,name,unitType,evolutionType,cost,baseAttack,baseHealth,baseSpeed,attributes,skillId,description,spritePath
+swordsman_01,견습 검사,Follower,Swordsman,2,5,10,5,None,basic_attack,기본 스탯이 높은 전사,Sprites/Units/swordsman_01
+swordsman_02,베테랑 검사,Follower,Swordsman,3,7,12,6,None,basic_attack,숙련된 검사,Sprites/Units/swordsman_02
+mage_01,견습 마법사,Follower,Mage,2,4,8,6,None,magic_boost,아군 마법 사용시 공격력 증가,Sprites/Units/mage_01
+mage_02,원소술사,Follower,Mage,4,6,10,7,Fire,elemental_attack,화염 속성 공격,Sprites/Units/mage_02
+researcher_01,연구원,Follower,Researcher,3,3,12,5,None,research,특수 조건으로 진화,Sprites/Units/researcher_01
+negotiator_01,상인,Follower,Negotiator,2,3,10,5,None,gold_earn,턴 종료시 1~3골드 획득,Sprites/Units/negotiator_01
+spirit_01,화염의 신령,Spirit,None,8,10,20,8,Fire,spirit_flame,강력한 화염 신령,Sprites/Units/spirit_01
+spirit_02,얼음의 신령,Spirit,None,8,8,25,7,Ice,spirit_ice,강력한 얼음 신령,Sprites/Units/spirit_02
+spirit_03,번개의 신령,Spirit,None,8,12,18,10,Lightning,spirit_thunder,강력한 번개 신령,Sprites/Units/spirit_03
+follower_01,냉기의 사제,Follower,None,3,4,10,6,Ice,ice_aura,뒤 2칸 아군 공격시 빙결 부여,Sprites/Units/follower_01
+follower_02,불의 사제,Follower,None,3,4,10,6,Fire,fire_aura,뒤 2칸 아군 공격시 화염 부여,Sprites/Units/follower_02
+follower_03,뇌광의 사제,Follower,None,3,4,10,6,Lightning,lightning_aura,뒤 2칸 아군 공격시 번개 부여,Sprites/Units/follower_03
+follower_04,근육질 노예,Follower,None,1,2,5,3,None,sell_bonus_attack,판매시 신령 공격력 +2,Sprites/Units/follower_04
+follower_05,발 빠른 노예,Follower,None,1,2,5,5,None,sell_bonus_speed,판매시 신령 속도 +2,Sprites/Units/follower_05
+follower_06,몰락한 귀족,Follower,None,2,3,8,4,None,sell_gold,판매시 3골드 획득,Sprites/Units/follower_06
+follower_07,운명의 딜러,Follower,None,4,5,12,6,None,gambler_attack,30% 확률로 추가 공격,Sprites/Units/follower_07
+follower_08,시계태엽 병사,Follower,None,3,4,10,8,Time,time_skip,10% 확률로 신령 즉시 행동,Sprites/Units/follower_08
+follower_09,영혼의 전도자,Follower,None,4,3,8,5,Soul,soul_boost,영혼 등장시 모든 영혼 공격력 +10%,Sprites/Units/follower_09
+follower_10,광기의 성직자,Follower,None,3,6,8,5,Madness,sync_attack,게임 시작시 신령 공격력과 동기화,Sprites/Units/follower_10

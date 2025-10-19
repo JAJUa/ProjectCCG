@@ -1,21 +1,83 @@
 using UnityEngine;
 
-namespace Systems.Base
+namespace SpiritAge.Utility
 {
     /// <summary>
-    /// 타입의 객체를 싱글톤화 하는 추상 클래스
+    /// 제네릭 싱글톤 추상 클래스
     /// </summary>
-    /// <typeparam name="T">컴포넌트 타입</typeparam>
-    public abstract class AbstractSingleton<T> : MonoBehaviour where T : Component
+    public abstract class AbstractSingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
-        public static T Instance { get; private set; }
+        private static T _instance;
+        private static readonly object _lock = new object();
+        private static bool _applicationIsQuitting = false;
+
+        public static T Instance
+        {
+            get
+            {
+                if (_applicationIsQuitting)
+                {
+                    Debug.LogWarning($"[Singleton] Instance '{typeof(T)}' already destroyed. Returning null.");
+                    return null;
+                }
+
+                lock (_lock)
+                {
+                    if (_instance == null)
+                    {
+                        _instance = (T)FindObjectOfType(typeof(T));
+
+                        if (FindObjectsOfType(typeof(T)).Length > 1)
+                        {
+                            Debug.LogError($"[Singleton] Multiple instances of '{typeof(T)}' found!");
+                            return _instance;
+                        }
+
+                        if (_instance == null)
+                        {
+                            GameObject singletonGO = new GameObject();
+                            _instance = singletonGO.AddComponent<T>();
+                            singletonGO.name = $"(Singleton) {typeof(T)}";
+                            DontDestroyOnLoad(singletonGO);
+
+                            Debug.Log($"[Singleton] Instance of '{typeof(T)}' created.");
+                        }
+                    }
+                    return _instance;
+                }
+            }
+        }
 
         protected virtual void Awake()
         {
-            if (Instance == null)
+            if (_instance == null)
             {
-                Instance = this as T;
+                _instance = this as T;
+                DontDestroyOnLoad(gameObject);
+                OnSingletonAwake();
+            }
+            else if (_instance != this)
+            {
+                Destroy(gameObject);
             }
         }
+
+        protected virtual void OnDestroy()
+        {
+            if (_instance == this)
+            {
+                _applicationIsQuitting = true;
+            }
+        }
+
+        protected virtual void OnApplicationQuit()
+        {
+            _applicationIsQuitting = true;
+        }
+
+        /// <summary>
+        /// 싱글톤 초기화 시 호출
+        /// </summary>
+        protected virtual void OnSingletonAwake() { }
     }
 }
